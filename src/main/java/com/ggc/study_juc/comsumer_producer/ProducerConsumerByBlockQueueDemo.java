@@ -43,7 +43,7 @@ public class ProducerConsumerByBlockQueueDemo {
 
         System.out.println("5秒钟时间到，大老板main线程叫停，活动结束");
 
-        myResource.stop();
+//        myResource.stop();
 
     }
 
@@ -53,7 +53,7 @@ public class ProducerConsumerByBlockQueueDemo {
 
         private AtomicInteger atomicInteger = new AtomicInteger();
 
-        public MyResource(BlockingQueue<String> blockingQueue) {
+        MyResource(BlockingQueue<String> blockingQueue) {
             this.blockingQueue = blockingQueue;
         }
 
@@ -70,7 +70,7 @@ public class ProducerConsumerByBlockQueueDemo {
                 } else {
                     System.out.println(Thread.currentThread().getName() + "\t 插入队列 " + data + " 失败");
                 }
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(4);
             }
             System.out.println(Thread.currentThread().getName() + "\t大老板叫停了，表示Flag = false，生产动作结束");
         }
